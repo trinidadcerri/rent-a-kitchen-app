@@ -1,2 +1,32 @@
-<div class="container">Hello from home page
+<div class="container mt-3">
+<h1>Take a look at our kitchens</h1>
+</div>
+<div class="row">
+    <% @kitchens.each do |kitchen| %>
+      <div class="col-md-4">
+        <div class="kitchen-card">
+          <div class="kitchen-card-image" style="background-image: url('<%= kitchen.photo_url %>')"></div>
+          <div class="kitchen-card-content">
+            <div class="kitchen-card-title">
+              <h4><%= kitchen.name %></h4>
+            </div>
+            <p><%= kitchen.address %></p>
+            <div class="flex">
+              <div class="flex align-items-center">
+                <i class="fa-solid fa-people-line"></i>
+                <span><%= kitchen.capacity %></span>
+              </div>
+              <div class="flex align-items-center ms-3">
+                <i class="fa-solid fa-euro-sign"></i>
+                <span><%= kitchen.price %></span>
+              </div>
+            </div>
+          </div>
+          <div class="kitchen-card-actions">
+            <%= link_to "More info", kitchen_path(kitchen) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -1,4 +1,5 @@
 class KitchensController < ApplicationController
+  before_action :set_kitchen, only: [:show]
 
   def index
     @kitchens = Kitchen.all
@@ -16,7 +17,15 @@ class KitchensController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+  
+  def show
+  end
+
   private
+
+  def set_kitchen
+    @kitchen = Kitchen.find(params[:id])
+  end
 
   def kitchen_params
     params.require(:kitchen).permit(:name, :address, :description, :price, :capacity, :photo_url)
