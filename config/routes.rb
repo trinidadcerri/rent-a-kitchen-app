@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create, :show]
     resources :reviews, only: [:create]
   end
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
   resources :kitchens, only: [:edit, :destroy] do
     resources :reviews, only: [:create]
   end
