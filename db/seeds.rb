@@ -7,8 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 require "open-uri"
-
-Kitchen.all.each do |kitchen|
+User.destroy_all
+User.create(email: "email@gmail.com", password: "123456", first_name: "Example First Name", last_name: "Example Last Name" )
+Kitchen.all.each do |kitchen|"
   kitchen.photo.purge
 end
 
