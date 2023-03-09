@@ -1,15 +1,15 @@
-<div class="map" style="background-image: url('<%= @cl_image_path @kitchen.photo.key %>')"></div>
 
+<div class="map" style="background-image: url('<%= cl_image_path @kitchen.photo.key %>')"></div>
 <div class="container margin-top-negative">
   <div class="row">
     <div class="col-8">
       <div class="kitchen-show-card">
         <h1><%= @kitchen.name %></h1>
-        <p class="kitchen-show-address"><%= @kitchen.address %></p>
+        <p class="kitchen-show-address">Address:<%= @kitchen.address %></p>
       </div>
       <div class="kitchen-show-card">
         <h3>A bit more about this kitchen...</h3>
-        <p><%= @kitchen.description %></p>
+        <p>Description:<%= @kitchen.description %></p>
       </div>
     </div>
 
