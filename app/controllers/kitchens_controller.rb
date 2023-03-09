@@ -17,7 +17,7 @@ class KitchensController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  
+
   def show
   end
 
@@ -28,6 +28,6 @@ class KitchensController < ApplicationController
   end
 
   def kitchen_params
-    params.require(:kitchen).permit(:name, :address, :description, :price, :capacity, :photo_url)
+    params.require(:kitchen).permit(:name, :address, :description, :price, :capacity, :photo)
   end
 end
