@@ -9,15 +9,15 @@ require 'faker'
 require "open-uri"
 User.destroy_all
 User.create(email: "email@gmail.com", password: "123456", first_name: "Example First Name", last_name: "Example Last Name" )
-Kitchen.all.each do |kitchen|"
+Kitchen.all.each do |kitchen|
   kitchen.photo.purge
 end
 
 Kitchen.destroy_all
 10.times do
-  name = Faker::Name.unique.name
-  address = Faker::Address.street_name
-  description = Faker::Name.name
+  name = Faker::Food.spice
+  address = Faker::Address.full_address
+  description = Faker::Food.description
   capacity = rand(1..3)
   price = [75, 100, 125, 150, 200].sample
   file = URI.open("https://source.unsplash.com/random/?kitchen")
