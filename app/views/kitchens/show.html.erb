@@ -4,11 +4,11 @@
     <div class="col-8">
       <div class="kitchen-show-card">
         <h1><%= @kitchen.name %></h1>
-        <p class="kitchen-show-address">Address:<%= @kitchen.address %></p>
+        <p class="kitchen-show-address">Address: <%= @kitchen.address %></p>
       </div>
       <div class="kitchen-show-card">
         <h3>A bit more about this kitchen...</h3>
-        <p>Description:<%= @kitchen.description %></p>
+        <p>Description: <%= @kitchen.description %></p>
       </div>
     </div>
 
@@ -41,9 +41,6 @@
             <i class="fa-brands fa-pinterest-square me-2"></i>
           </div>
         </div>
-        <div class="kitchen-card-actions">
-      <%= link_to "Back to Kitchens", kitchens_path, class: "btn btn-back" %>
-</div>
       </div>
     </div>
   </div>
