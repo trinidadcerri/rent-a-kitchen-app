@@ -14,6 +14,7 @@
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+
 }
 
 .kitchen-card-image {
@@ -25,6 +26,7 @@
 .kitchen-card-content {
   padding: 24px;
   background-color: #F8F9FA;
+  text-align: left;
 }
 
 .kitchen-card-actions {
@@ -64,8 +66,35 @@
   font-weight: 300;
   font-size: 20px;
   color: #333;
+  text-align: left;
 }
 a {
   text-decoration: none;
   color: pink;
+}
+.btn-back {
+  background: #F8F9FA;
+  color: #333;
+  border-color: #333;
+}
+.booking-cofirmation {
+  background: #F8F9FA;
+  padding: 40px;
+  margin: 20px 20px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  border-radius: 3px;
+  border-color: #333;
+}
+.booking-cofirmation h4{
+  text-align: center;
+}
+.booking-cofirmation img {
+  display: center;
+  align-items: center;
+  width: 100%;
+  object-fit: cover;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
 }
