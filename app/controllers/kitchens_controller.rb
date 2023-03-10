@@ -19,12 +19,14 @@ class KitchensController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   private
 
   def set_kitchen
-    @kitchen = Kitchen.find(params[:id])
+    id = params[:id] ? params[:id] : params[:kitchen_id]
+    @kitchen = Kitchen.find(id)
   end
 
   def kitchen_params
