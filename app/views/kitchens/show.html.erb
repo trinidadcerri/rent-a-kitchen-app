@@ -21,7 +21,7 @@
           <%= f.submit class: "btn btn-success mt-2" %>
         <% end %>
       <div class="kitchen-show-card">
-        <h3>Details</h3>
+        <h4>Details</h4>
         <div class="flex">
           <div class="flex">
             <%= @kitchen.capacity %> people
@@ -31,20 +31,19 @@
           </div>
         </div>
       </div>
-
-      <%= link_to "Back to Kitchens", kitchens_path, class: "btn btn-flat" %>
-
       <div class="kitchen-show-card">
         <div class="flex-align">
-          <h6 class="no-mb">Share</h6>
+          <h6 class="no-mb">Share this kitchen</h6>
 
           <div class="flex">
             <i class="fa-brands fa-facebook-square me-2"></i>
             <i class="fa-brands fa-twitter-square me-2"></i>
             <i class="fa-brands fa-pinterest-square me-2"></i>
           </div>
-
         </div>
+        <div class="kitchen-card-actions">
+      <%= link_to "Back to Kitchens", kitchens_path, class: "btn btn-back" %>
+</div>
       </div>
     </div>
   </div>

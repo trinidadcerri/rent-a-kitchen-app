@@ -1,1 +1,9 @@
-<h1>You have successfully booked <%= @booking.kitchen.name %> kitchen </h1>
+<div class="container booking-cofirmation">
+<h4>You have successfully booked <%= @booking.kitchen.name %> kitchen </h4>
+<p>Details of this booking:
+</p>
+<ul class="li">Adress: <%= @booking.kitchen.address %> </ul>
+<ul class="li">Date: <%= @booking.date %></ul>
+<ul class="li">Price: <%= @booking.kitchen.price %> euro per hour</ul>
+<img src="https://source.unsplash.com/random/?food" alt="random food" height = 200>
+</div>
