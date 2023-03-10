@@ -5,16 +5,15 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
-  def new
-    @booking = Booking.new
-  end
-
   def create
     @booking = Booking.new(booking_params)
-    if @booking.save
-      redirect_to bookings_path
+    @kitchen = Kitchen.find(params[:kitchen_id])
+    @booking.kitchen = @kitchen
+    @booking.user = current_user
+    if @booking.save!
+      redirect_to kitchen_booking_path(@kitchen, @booking)
     else
-      render :new, status: :unprocessable_entity
+      redirect_to "kitchens/show", allow_other_host: true
     end
   end
 
