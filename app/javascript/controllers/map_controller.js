@@ -22,7 +22,7 @@ export default class extends Controller {
       mapboxgl: mapboxgl }))
   }
   #addMarkerToMap() {
-    const marker = this.markersValue;
+    const marker = this.markerValue;
     const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
 
     const customMarker = document.createElement("div")
@@ -34,7 +34,7 @@ export default class extends Controller {
       .addTo(this.map)
   }
   #fitMapToMarker() {
-    const marker = this.markersValue; // assuming markersValue is a single marker object
+    const marker = this.markerValue; // assuming markersValue is a single marker object
     const bounds = new mapboxgl.LngLatBounds().extend([ marker.lng, marker.lat ]);
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
   }

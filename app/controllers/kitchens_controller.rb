@@ -11,8 +11,9 @@ class KitchensController < ApplicationController
 
   def create
     @kitchen = Kitchen.new(kitchen_params)
+    @kitchen.user = current_user
     if @kitchen.save
-      redirect_to kitchens_path
+      redirect_to @kitchen
     else
       render :new, status: :unprocessable_entity
     end
