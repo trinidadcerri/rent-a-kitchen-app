@@ -23,6 +23,7 @@ Kitchen.destroy_all
   file = URI.open("https://source.unsplash.com/random/?kitchen")
   kitchen = Kitchen.create(name: name, address: address, description: description, capacity: capacity, price: price)
   kitchen.photo.attach(io: file, filename: kitchen.name, content_type: "image/jpg")
+  kitchen.user = User.all.sample
   kitchen.save
   p kitchen
 end
