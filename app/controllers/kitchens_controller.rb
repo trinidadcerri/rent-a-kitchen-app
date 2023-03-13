@@ -22,7 +22,9 @@ class KitchensController < ApplicationController
     @booking = Booking.new
     @marker = {
       lat: @kitchen.latitude,
-      lng: @kitchen.longitude
+      lng: @kitchen.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: { kitchen: @kitchen }),
+      marker_html: render_to_string(partial: "marker", locals: { kitchen: @kitchen })
     }
   end
 
