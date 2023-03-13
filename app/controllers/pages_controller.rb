@@ -6,6 +6,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @kitchens = Kitchen.where(user: current_user)
-    @bookings = @kitchens.map { |kitchen| kitchen.bookings }
+    @bookings = Booking.where(user: current_user)
   end
 end

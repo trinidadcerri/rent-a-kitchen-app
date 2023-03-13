@@ -1,0 +1,18 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h2>Edit this kitchen</h2>
+        <%= simple_form_for @kitchen do |f| %>
+          <%= f.input :name, placeholder: 'Name of the Kitchen' %>
+          <%= f.input :description, placeholder: 'Description' %>
+          <%= f.input :capacity, placeholder: 'Number of guests' %>
+          <%= f.input :price, placeholder: 'Price for the renting' %>
+          <%= f.input :address, placeholder: 'Location' %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit class: 'btn btn-secondary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
