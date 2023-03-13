@@ -11,8 +11,9 @@ class KitchensController < ApplicationController
 
   def create
     @kitchen = Kitchen.new(kitchen_params)
+    @kitchen.user = current_user
     if @kitchen.save
-      redirect_to kitchens_path
+      redirect_to @kitchen
     else
       render :new, status: :unprocessable_entity
     end
@@ -20,6 +21,12 @@ class KitchensController < ApplicationController
 
   def show
     @booking = Booking.new
+    @marker = {
+      lat: @kitchen.latitude,
+      lng: @kitchen.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: { kitchen: @kitchen }),
+      marker_html: render_to_string(partial: "marker", locals: { kitchen: @kitchen })
+    }
   end
 
   def edit

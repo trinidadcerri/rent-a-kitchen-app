@@ -6,7 +6,7 @@
     <% @kitchens.each do |kitchen| %>
       <div class="col-md-4">
         <div class="kitchen-card">
-          <div class="kitchen-card-image" style="background-image: url('<%= cl_image_path kitchen.photo.key %>')"></div>
+          <div class="kitchen-card-image" style="background-image: url('<%= cl_image_path kitchen.photo.key if kitchen.photo.key %>')"></div>
           <div class="kitchen-card-content">
             <div class="kitchen-card-title">
               <h4><%= kitchen.name %></h4>
