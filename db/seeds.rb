@@ -16,7 +16,7 @@ end
 Kitchen.destroy_all
 10.times do
   name = Faker::Food.spice
-  address = Faker::Address.full_address
+  address = Faker::Address.state
   description = Faker::Food.description
   capacity = rand(1..3)
   price = [75, 100, 125, 150, 200].sample
