@@ -83,3 +83,5 @@ gem 'faker'
 gem "dotenv-rails", groups: [:development, :test]
 gem "cloudinary"
 gem "geocoder"
+gem 'omniauth'
+gem 'omniauth-facebook'
