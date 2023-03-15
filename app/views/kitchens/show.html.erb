@@ -39,13 +39,34 @@
       <div class="kitchen-show-card">
         <div class="flex-align">
           <h6 class="no-mb">Share this kitchen</h6>
-
           <div class="flex">
             <i class="fa-brands fa-facebook-square me-2"></i>
             <i class="fa-brands fa-twitter-square me-2"></i>
             <i class="fa-brands fa-pinterest-square me-2"></i>
           </div>
         </div>
+      </div>
+      <div class="kitchen-show-card">
+      <h4>Reviews</h4>
+            <% if @kitchen.reviews.empty? %>
+        <small><em class="text-muted">Be the first one to review this kitchen</em></small>
+      <% end %>
+      <% @kitchen.reviews.each do |review| %>
+        <div>
+          <% review.raiting.times do %>
+            <i class="fas fa-star star-yellow"></i>
+          <% end %>
+          <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+          <p class="mb-0"><%= review.comment %></p>
+        </div>
+        <hr>
+      <% end %>
+      <h5>Add your review</h5>
+        <%= simple_form_for [@kitchen, @review] do |f| %>
+          <%= f.input :comment, placeholder: "Add your review here..." %>
+          <%= f.input :raiting, as: :select, collection: (1..5), required: true, prompt: "What's your rating" %>
+          <%= f.submit class:"btn btn-secondary" %>
+        <% end %>
       </div>
     </div>
   </div>
