@@ -21,6 +21,7 @@ class KitchensController < ApplicationController
 
   def show
     @booking = Booking.new
+    @review = Review.new
     @marker = {
       lat: @kitchen.latitude,
       lng: @kitchen.longitude,

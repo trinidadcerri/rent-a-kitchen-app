@@ -1,9 +1,24 @@
-<!-- 1. Accept / Decline a booking-->
-<!-- 2. Display bookings: "Pending", "Accepted", "Declined"-->
+<!-- 1. Display bookings for the kitchens this user wants to rent (I WANT TO DISPLAY IN EACH CARD INSIDE THE DASHBOARD: NAME OF THE KITCHEN, BOOKING DATE AND STATUS / NOT ANOTHER PAGE) -->
+<!-- NOW THE LINK GOES TO THE SHOW PAGE AND WE CAN DO ANOTHER BOOKING OR THE SAME AGAIN / ALSO IS SAYING "KITCHEN" AND NOT KITCHEN NAME -->
+<h2>My Bookings</h2>
+<div>
+  <ul>
+  <% @bookings.each do |booking| %>
+    <li>
+      <%= link_to kitchen_path(booking.kitchen) do %>
+      <div>
+        <%= booking.kitchen.name %>
+        <%= booking.date %>
+        <%= booking.status %>
+        <%= link_to 'Cancel reservation', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "are you sure?" } %>
+      </div>
+      <% end %>
+    </li>
+  <% end %>
+  </ul>
+</div>
 
-<!-- 3. Delete Bookings (check delete method in the controller)-->
-
-<!-- check edit/delete method in the controller-->
+<!-- Logic to Accept / Decline a booking (I WANT TO TEST IT) / I CANNOT SEE NOTHING NOW -->
 <div class="row">
     <% @kitchens.each do |kitchen| %>
       <div class="col-md-4">
@@ -46,22 +61,3 @@
     <% end %>
   </div>
 </div>
-
-<!-- Display bookings for the kitchens this user wants to rent -->
-
-<h2>My Bookings</h2>
-<div>
-  <ul>
-  <% @bookings.each do |booking| %>
-    <li>
-      <%= link_to kitchen_path(booking.kitchen) do %>
-        <%= booking.kitchen %>
-        <%= booking.date %>
-        <%= booking.status %>
-      <% end %>
-    </li>
-  <% end %>
-  </ul>
-</div>
-
-<!-- Display Kitchens (just for host tenant): i can go to that kitchen (show) and i have 2 actions (edit and delete) JUST FOR THAT HOST-USER -->
