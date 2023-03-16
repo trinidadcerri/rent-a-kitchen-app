@@ -27,7 +27,7 @@
                 <!-- def destroy -->
                   <!-- @booking.destroy -->
                   <!-- redirect_to dashboard_path, status: :see_other -->
-                <!-- end
+                <!-- end  -->
 
 <!-- 3. CHECK THE SCHEMA: DO WE NEED TO DELETE THE COLUMN DATE AND ADD 2 NEW COLUMNSC(ARRIVAL_DATE / DEPARTURE_DATE)? -->
 <!-- rails generate migration add_arrival_date_to_bookings arrival_date:integer -->
@@ -78,7 +78,7 @@
   </div>
 </div>
 
-<!-- 5. Display bookings: "Pending", "Accepted", "Declined"-->
+<!-- 5. Display bookings: "Pending", "Accepted", "Declined" -->
           <!--  <% if @booking.user_id == current_user.id && booking.status == "Decline" %> -->
           <!--   <h5>You have (number) kitchen's booking declined</h5>  -->
           <!--  <% elsif @booking.user_id == current_user.id && booking.status == "Accepted" %> -->
@@ -92,4 +92,9 @@
                   <!-- <%= link_to 'Delete this kitchen', kitchen_path(kitchen), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{kitchen.name}?"}, class: 'text-danger' %>  -->
                   <!-- <%= link_to 'Edit the details of this kitchen', edit_kitchen_path(kitchen) %>  -->
           <!-- <% end %>  -->
+<!-- ADD THE ACTION IN THE BOOKING'S CONTROLLER -->
+        <!-- def destroy/edit (0)/update -->
+            <!-- @kitchen.destroy -->
+            <!-- redirect_to kitchens_path, status: :see_other -->
+        <!-- end -->
 <!-- ADD THE VIEW FOR EDIT  -->
