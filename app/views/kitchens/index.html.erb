@@ -45,6 +45,11 @@
           </div>
           <div class="kitchen-card-actions">
             <%= link_to "Show this kitchen", kitchen_path(kitchen) %>
+            <%= link_to "Edit", edit_kitchen_path(kitchen), class: "ms-3 text-warning" %>
+            <%= link_to "Remove", kitchen_path(kitchen),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                class: "ms-3 text-danger"
+            %>
           </div>
         </div>
       </div>
