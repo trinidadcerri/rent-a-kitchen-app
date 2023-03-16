@@ -1,5 +1,5 @@
 class KitchensController < ApplicationController
-  before_action :set_kitchen, only: [:show]
+  before_action :set_kitchen, only: [:show, :edit, :update, :destroy]
 
   def index
     @kitchens = Kitchen.all
@@ -34,9 +34,16 @@ class KitchensController < ApplicationController
   end
 
   def update
+    if @kitchen.update(kitchen_params)
+      redirect_to @kitchen
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    @kitchen.destroy
+    redirect_to kitchens_path, status: :see_other
   end
 
   private
