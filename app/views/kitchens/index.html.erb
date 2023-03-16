@@ -20,7 +20,15 @@
   </button>
 </div>
 <div class="card-category" style ="color: black; opacity: 0.6">
-  Find the best kitchen for yourself
+<%= form_with url: kitchens_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control input",
+    placeholder: "Find the best kitchen for yourself...", class: "input"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 </div>
 <div class="row">
     <% @kitchens.each do |kitchen| %>

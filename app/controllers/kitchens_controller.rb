@@ -2,7 +2,11 @@ class KitchensController < ApplicationController
   before_action :set_kitchen, only: [:show, :edit, :update, :destroy]
 
   def index
-    @kitchens = Kitchen.all
+    if params[:query].present?
+      @kitchens = Kitchen.search_by_name_and_address(params[:query])
+    else
+      @kitchens = Kitchen.all
+    end
   end
 
   def new
