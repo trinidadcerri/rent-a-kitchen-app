@@ -3,5 +3,5 @@ class Booking < ApplicationRecord
   validates :date, uniqueness: {scope: :kitchen}
   belongs_to :kitchen
   belongs_to :user
-  enum :status, [ :pending, :accepted, :declined ]
+  enum :status, [ :pending, :accepted, :declined ], default: :pending
 end
