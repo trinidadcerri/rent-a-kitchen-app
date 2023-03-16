@@ -6,95 +6,13 @@
   <% @bookings.each do |booking| %>
     <li>
       <%= link_to kitchen_path(booking.kitchen) do %>
-        <%= booking.kitchen %>
+      <div>
+        <%= booking.kitchen.name %>
         <%= booking.date %>
         <%= booking.status %>
+      </div>
       <% end %>
     </li>
   <% end %>
   </ul>
 </div>
-
-<!-- 2. I WANT TO ADD THE OPTION INSIDE THE CARD: DELETE THIS BOOKING -->
-        <!-- CHECK THE PATH IN THE ROUTES (NOW IS INSIDE BOOKING) -->
-        <!-- ADD THE BUTTON HERE -->
-                <!-- <% if @booking.user_id == current_user.id %>  -->
-                <!-- <%= link_to 'Cancel reservation', listing, :confirm => 'Are you sure cancelling this reservation?', :method => :delete %>  -->
-                <!-- <%= link_to 'Edit', edit_reservation_path(@reservation) %>  -->
-                <!-- <% end %>  -->
-        <!-- CHECK THE PATH IN THE ROUTES (dashboard or booking?) -->
-        <!-- ADD THE ACTION IN THE BOOKING'S CONTROLLER -->
-                <!-- def destroy -->
-                  <!-- @booking.destroy -->
-                  <!-- redirect_to dashboard_path, status: :see_other -->
-                <!-- end  -->
-
-<!-- 3. CHECK THE SCHEMA: DO WE NEED TO DELETE THE COLUMN DATE AND ADD 2 NEW COLUMNSC(ARRIVAL_DATE / DEPARTURE_DATE)? -->
-<!-- rails generate migration add_arrival_date_to_bookings arrival_date:integer -->
-<!-- rails generate migration add_departure_date_to_bookings departure_date:integer -->
-
-
-<!-- 4. Logic to Accept / Decline a booking (I WANT TO TEST IT) / I CANNOT SEE NOTHING NOW -->
-<div class="row">
-    <% @kitchens.each do |kitchen| %>
-      <div class="col-md-4">
-        <div class="kitchen-card">
-          <div class="kitchen-card-image" style="background-image: url('<%= cl_image_path kitchen.photo.key %>')"></div>
-          <div class="kitchen-card-content">
-            <div class="kitchen-card-title">
-              <h4><%= kitchen.name %></h4>
-            </div>
-            <p><%= kitchen.address %></p>
-            <div class="flex">
-              <div class="flex align-items-center">
-                <i class="fa-solid fa-people-line"></i>
-                <span><%= kitchen.capacity %></span>
-              </div>
-              <div class="flex align-items-center ms-3">
-                <i class="fa-solid fa-euro-sign"></i>
-                <span><%= kitchen.price %></span>
-              </div>
-            </div>
-          </div>
-          <div class="kitchen-card-actions">
-            <%= link_to "Show this kitchen", kitchen_path(kitchen) %>
-          </div>
-          <div>
-          <ul>
-            <% kitchen.bookings.each do |booking| %>
-              <li>
-                <p><%= booking.user.first_name %> wants to book on <%= booking.date %></p>
-                <% if booking.status == "Pending" %>
-                  <%= link_to "Accept", accept_path(booking), class:"btn btn-success" %>
-                  <%= link_to "Decline", decline_path(booking), class:"btn btn-danger" %>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<!-- 5. Display bookings: "Pending", "Accepted", "Declined" -->
-          <!--  <% if @booking.user_id == current_user.id && booking.status == "Decline" %> -->
-          <!--   <h5>You have (number) kitchen's booking declined</h5>  -->
-          <!--  <% elsif @booking.user_id == current_user.id && booking.status == "Accepted" %> -->
-          <!--   <h5>You have (number) kitchen's booking accepted</h5>  -->
-          <!--  <% if @booking.user_id == current_user.id && booking.status == "Pending" %> -->
-          <!--   <h5>You have (number) kitchen's booking pending</h5>  -->
-          <!--  <% end %> -->
-
-<!-- 6. SHOW PAGE: Display Kitchens (just for host tenant) and he/she have 2 actions (edit and delete FOR THAT KITCHEN) -->
-          <!-- <% if @kitchen.user_id == current_user.id %>  -->
-                  <!-- <%= link_to 'Delete this kitchen', kitchen_path(kitchen), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{kitchen.name}?"}, class: 'text-danger' %>  -->
-                  <!-- <%= link_to 'Edit the details of this kitchen', edit_kitchen_path(kitchen) %>  -->
-          <!-- <% end %>  -->
-<!-- ADD THE ACTION IN THE BOOKING'S CONTROLLER -->
-        <!-- def destroy/edit (0)/update -->
-            <!-- @kitchen.destroy -->
-            <!-- redirect_to kitchens_path, status: :see_other -->
-        <!-- end -->
-<!-- ADD THE VIEW FOR EDIT  -->
