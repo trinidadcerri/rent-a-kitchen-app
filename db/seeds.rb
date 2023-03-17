@@ -73,7 +73,11 @@ seventh_kitchen = Kitchen.new(small_kitchen)
 seventh_kitchen.photo.attach(io: File.open("app/assets/images/SMALL_KITCHEN.jpeg"), filename: seventh_kitchen.name, content_type: "image/jpg")
 seventh_kitchen.save!
 ##
-# small_kitchen =  {name: "Small kitchen", address: "Gnomenpl. 14, 13088 Berlin", description: "If you and your partner share an apartment, don't have space to cook for each other and are looking for a moment to treat him or her... This is your best opportunity! Enjoy our kitchen, while you have a long chat and a glass of wine. It is located in a quiet neighborhood, so getting lost in traffic to get there is not an option!", capacity: 2, price: 70 }
+family_kitchen = {user_id: User.last.id, name: "Family kitchen", address: "Baerwaldstraße 16, 10961 Berlin", description: "Our big family wants to share their space so that you can feel at ease cooking like at home. Savory, sweet or any kind of dishes, you now have the space to create them. The kitchen was old and had no style, we took all last year to modernize it and this is our best result. We can't wait for you to come and work your magic!", capacity: 10, price: 225 }
+eighth_kitchen = Kitchen.new(family_kitchen)
+eighth_kitchen.photo.attach(io: File.open("app/assets/images/FAMILY_KITCHEN.jpg"), filename: eighth_kitchen.name, content_type: "image/jpg")
+eighth_kitchen.save!
+##
 # family_kitchen =  {name: "Family kitchen", address: "Baerwaldstraße 16, 10961 Berlin", description: "Our big family wants to share their space so that you can feel at ease cooking like at home. Savory, sweet or any kind of dishes, you now have the space to create them. The kitchen was old and had no style, we took all last year to modernize it and this is our best result. We can't wait for you to come and work your magic!", capacity: 10, price: 225 }
 # lovely_kitchen =  {name: "Lovely kitchen", address: "Naunynstraße 33, 10999 Berlin", description: "The space was dark and, with a small window, everything changed. We decided to modernize it further and this was the final result. The green plant and the contrast of the chairs make the kitchen divine. You have a big bar to knead, season or prepare whatever you want. It is located in the middle of the center so in 10 minutes you will be preparing your best dishes. We are waiting for you with your reservation for the weekend!", capacity: 3, price: 95 }
 # [orange_kitchen, 2_ovens_kitchen, big_kitchen, medium_kitchen, colorful_kitchen, sunny_kitchen, small_kitchen, family_kitchen, lovely_kitchen].each do |attributes|
