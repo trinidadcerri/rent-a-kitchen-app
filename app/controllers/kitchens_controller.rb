@@ -34,16 +34,24 @@ class KitchensController < ApplicationController
   end
 
   def update
-    if @kitchen.update(kitchen_params)
-      redirect_to @kitchen
+    if current_user == @kitchen.user
+      if @kitchen.update(kitchen_params)
+        redirect_to @kitchen, notice: 'Kitchen was successfully updated.'
+      else
+        render :edit, status: :unprocessable_entity
+      end
     else
-      render :new, status: :unprocessable_entity
+      redirect_to kitchens_path, alert: 'You are not authorized to update this kitchen.'
     end
   end
 
   def destroy
-    @kitchen.destroy
-    redirect_to kitchens_path, status: :see_other
+    if current_user == @kitchen.user
+      @kitchen.destroy
+      redirect_to kitchens_path, notice: 'Kitchen was successfully destroyed.'
+    else
+      redirect_to kitchens_path, alert: 'You are not authorized to perform this action.'
+    end
   end
 
   private
