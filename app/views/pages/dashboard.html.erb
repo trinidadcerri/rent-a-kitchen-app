@@ -4,10 +4,10 @@
     <% @bookings.each do |booking| %>
       <div class="col-md-4">
         <div class="kitchen-card">
-            <div class="kitchen-card-title">
+            <div class="kitchen-card-title" style="padding: 15px 0px; ">
               <h4><%= booking.kitchen.name %></h4>
             </div>
-            <div class="kitchen-card-content">
+            <div class="kitchen-card-content" style="margin: 0; ">
               <p>Your booking is on:  <%= booking.date %></p>
               <p>Your booking is:  <%= booking.status %></p>
             </div>
