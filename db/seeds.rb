@@ -7,11 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 require "open-uri"
-# User.destroy_all
-# User.create(email: "user@example.com", password: "123456", first_name: "Example First Name", last_name: "Example Last Name" )
 
-
-
+########### Faker
 # Kitchen.all.each do |kitchen|
 #   kitchen.photo.purge
 # end
@@ -31,25 +28,11 @@ require "open-uri"
 #   p kitchen
 # end
 
-#####
-# puts "Cleaning database..."
-# User.destroy_all
-
-# puts "Creating users..."
-# presentation_user = User.create(email: "presentation@example.com", password: "123456", first_name: "Julia", last_name: "Rob" )
-# trinidad_user = User.create(email: "trinidad@example.com", password: "123456", first_name: "Trinidad", last_name: "Cerri" )
-# olga_user = User.create(email: "olga@example.com", password: "123456", first_name: "Olga", last_name: "Iuzvyshyna" )
-
-# [presentation_user, trinidad_user, olga_user].each do |attributes|
-#   user = User.create!(attributes)
-#   puts "Created #{user.first_name}"
-# end
-
-# puts "Finished!"
+########### Users
 User.destroy_all
 User.create(email: "user@example.com", password: "123456", first_name: "Example First Name", last_name: "Example Last Name" )
 
-######
+########### Kitchens
 puts "Cleaning database..."
 Kitchen.destroy_all
 
@@ -80,7 +63,11 @@ fifth_kitchen = Kitchen.new(colorful_kitchen)
 fifth_kitchen.photo.attach(io: File.open("app/assets/images/COLORFUL_KITCHEN.jpg"), filename: fifth_kitchen.name, content_type: "image/jpg")
 fifth_kitchen.save!
 ##
-# colorful_kitchen =  {name: "Colorful kitchen", address: "Wolfener Str. 33, 12681 Berlin", description: "We love our vibrantly colored kitchen! As you can see in the photo our kitchen has a unique energy! We hope your experience cooking here is as beautiful as ours. You are invited to use it for hours making your best creations. We look forward to seeing you!", capacity: 3, price: 200 }
+sunny_kitchen = {user_id: User.last.id, name: "Sunny kitchen", address: "Neumagener Str. 49, 13088 Berlin", description: "Getting up to have our morning coffee with this light and this view is a unique experience for us and we wanted to share it with the world. We have created a small space that integrates nature, sunlight and modern design in our kitchen. Come and cook your best savory dishes, you can enjoy our beautiful garden while you wait :)", capacity: 5, price: 180 }
+sixth_kitchen = Kitchen.new(sunny_kitchen)
+sixth_kitchen.photo.attach(io: File.open("app/assets/images/SUNNY_KITCHEN.jpg"), filename: sixth_kitchen.name, content_type: "image/jpg")
+sixth_kitchen.save!
+##
 # sunny_kitchen =  {name: "Sunny kitchen", address: "Neumagener Str. 49, 13088 Berlin", description: "Getting up to have our morning coffee with this light and this view is a unique experience for us and we wanted to share it with the world. We have created a small space that integrates nature, sunlight and modern design in our kitchen. Come and cook your best savory dishes, you can enjoy our beautiful garden while you wait :)", capacity: 5, price: 180 }
 # small_kitchen =  {name: "Small kitchen", address: "Gnomenpl. 14, 13088 Berlin", description: "If you and your partner share an apartment, don't have space to cook for each other and are looking for a moment to treat him or her... This is your best opportunity! Enjoy our kitchen, while you have a long chat and a glass of wine. It is located in a quiet neighborhood, so getting lost in traffic to get there is not an option!", capacity: 2, price: 70 }
 # family_kitchen =  {name: "Family kitchen", address: "Baerwaldstraße 16, 10961 Berlin", description: "Our big family wants to share their space so that you can feel at ease cooking like at home. Savory, sweet or any kind of dishes, you now have the space to create them. The kitchen was old and had no style, we took all last year to modernize it and this is our best result. We can't wait for you to come and work your magic!", capacity: 10, price: 225 }
