@@ -11,3 +11,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// General settings
+.customize-container {
+  min-height: calc(100vh - 165px - 110px);
+}
