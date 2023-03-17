@@ -65,13 +65,16 @@ second_kitchen = Kitchen.new(two_ovens_kitchen)
 second_kitchen.photo.attach(io: File.open("app/assets/images/TWO_OVENS_KITCHEN.jpg"), filename: second_kitchen.name, content_type: "image/jpg")
 second_kitchen.save!
 ##
-##
 big_kitchen = {user_id: User.last.id, name: "Big kitchen", address: "Sredzkistraße 1, 10435 Berlin", description: "We are very happy to be able to share this beautiful kitchen with you. It took us a long time to build this space in the back garden of the house and we did it only for one purpose: to have many guests! This kitchen can receive more than 12 people you want to entertain. We have had a good time here, we hope you will too!", capacity: 12, price: 350 }
 third_kitchen = Kitchen.new(big_kitchen)
 third_kitchen.photo.attach(io: File.open("app/assets/images/BIG_KITCHEN.jpg"), filename: third_kitchen.name, content_type: "image/jpg")
 third_kitchen.save!
 ##
-
+medium_kitchen = {user_id: User.last.id, name: "Medium size kitchen", address: "Zossener Str. 44, 10961 Berlin", description: "This beautiful Scandinavian style kitchen is perfect for having friends over for tea and baking them a nice cake. The size is comfortable for a medium sized group and since it is integrated to the environment you can finish cooking while they start drinking tea or the drink of their choice. It will be a pleasure to have people cooking at home!", capacity: 4, price: 100 }
+fourth_kitchen = Kitchen.new(medium_kitchen)
+fourth_kitchen.photo.attach(io: File.open("app/assets/images/MEDIUM_KITCHEN.jpg"), filename: fourth_kitchen.name, content_type: "image/jpg")
+fourth_kitchen.save!
+##
 # medium_kitchen =  {name: "Medium size kitchen", address: "Zossener Str. 44, 10961 Berlin", description: "This beautiful Scandinavian style kitchen is perfect for having friends over for tea and baking them a nice cake. The size is comfortable for a medium sized group and since it is integrated to the environment you can finish cooking while they start drinking tea or the drink of their choice. It will be a pleasure to have people cooking at home!", capacity: 4, price: 100 }
 # colorful_kitchen =  {name: "Colorful kitchen", address: "Wolfener Str. 33, 12681 Berlin", description: "We love our vibrantly colored kitchen! As you can see in the photo our kitchen has a unique energy! We hope your experience cooking here is as beautiful as ours. You are invited to use it for hours making your best creations. We look forward to seeing you!", capacity: 3, price: 200, file: (../images/KITCHEN 5 - COLORFUL KITCHEN.jpg) }
 # sunny_kitchen =  {name: "Sunny kitchen", address: "Neumagener Str. 49, 13088 Berlin", description: "Getting up to have our morning coffee with this light and this view is a unique experience for us and we wanted to share it with the world. We have created a small space that integrates nature, sunlight and modern design in our kitchen. Come and cook your best savory dishes, you can enjoy our beautiful garden while you wait :)", capacity: 5, price: 180 }
