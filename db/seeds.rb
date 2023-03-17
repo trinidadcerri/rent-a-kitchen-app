@@ -54,8 +54,18 @@ puts "Cleaning database..."
 Kitchen.destroy_all
 
 puts "Creating kitchens..."
+##
 orange_kitchen = {user_id: User.last.id, name: "Orange kitchen", address: "Seumestraße 4, 10245 Berlin", description: "The orange kitchen is a spacious, vibrantly colored kitchen. It has two wall ovens and plenty of counter space for cooking. The view from the window is open to the garden so you and your guests can get some air while cooking!", capacity: 5, price: 100 }
-# photo: File.open("app/assets/images/ORANGE_KITCHEN.jpg")
+first_kitchen = Kitchen.new(orange_kitchen)
+first_kitchen.photo.attach(io: File.open("app/assets/images/ORANGE_KITCHEN.jpg"), filename: first_kitchen.name, content_type: "image/jpg")
+first_kitchen.save!
+##
+two_ovens_kitchen = {user_id: User.last.id, name: "2 oven's kitchen", address: "Viktoria-Luise-Platz 5, 10777 Berlin", description: "This kitchen is perfect if you want to cook sweet recipes, make pastries or any other preparation that requires the use of the oven in different stages. Besides having plenty of oven space, its light colors make it beautiful. We are waiting for your reservation!", capacity: 7, price: 120 }
+second_kitchen = Kitchen.new(two_ovens_kitchen)
+second_kitchen.photo.attach(io: File.open("app/assets/images/TWO_OVENS_KITCHEN.jpg"), filename: second_kitchen.name, content_type: "image/jpg")
+second_kitchen.save!
+##
+# photo: File.open("app/assets/images/2OVENS_KITCHEN.jpg")
 # 2_ovens_kitchen =  {name: "2 oven's kitchen", address: "Viktoria-Luise-Platz 5, 10777 Berlin", description: "This kitchen is perfect if you want to cook sweet recipes, make pastries or any other preparation that requires the use of the oven in different stages. Besides having plenty of oven space, its light colors make it beautiful. We are waiting for your reservation!", capacity: 7, price: 200, photo: (../images/KITCHEN 2 - 2 OVENS.jpg) }
 # big_kitchen =  {name: "Big kitchen", address: "Sredzkistraße 1, 10435 Berlin", description: "We are very happy to be able to share this beautiful kitchen with you. It took us a long time to build this space in the back garden of the house and we did it only for one purpose: to have many guests! This kitchen can receive more than 12 people you want to entertain. We have had a good time here, we hope you will too!", capacity: 12, price: 350, file: (../images/KITCHEN 3 - 10 GUEST KITCHEN.jpg) }
 # medium_kitchen =  {name: "Medium size kitchen", address: "Zossener Str. 44, 10961 Berlin", description: "This beautiful Scandinavian style kitchen is perfect for having friends over for tea and baking them a nice cake. The size is comfortable for a medium sized group and since it is integrated to the environment you can finish cooking while they start drinking tea or the drink of their choice. It will be a pleasure to have people cooking at home!", capacity: 4, price: 100, file: (../images/KITCHEN 4 - MEDIUM KITCHEN.jpg) }
@@ -64,10 +74,6 @@ orange_kitchen = {user_id: User.last.id, name: "Orange kitchen", address: "Seume
 # small_kitchen =  {name: "Small kitchen", address: "Gnomenpl. 14, 13088 Berlin", description: "If you and your partner share an apartment, don't have space to cook for each other and are looking for a moment to treat him or her... This is your best opportunity! Enjoy our kitchen, while you have a long chat and a glass of wine. It is located in a quiet neighborhood, so getting lost in traffic to get there is not an option!", capacity: 2, price: 70, file: (../images/KITCHEN 7 - SMALL KITCHEN.jpg) }
 # family_kitchen =  {name: "Family kitchen", address: "Baerwaldstraße 16, 10961 Berlin", description: "Our big family wants to share their space so that you can feel at ease cooking like at home. Savory, sweet or any kind of dishes, you now have the space to create them. The kitchen was old and had no style, we took all last year to modernize it and this is our best result. We can't wait for you to come and work your magic!", capacity: 10, price: 225, file: (../images/KITCHEN 8 - FAMILY KITCHEN.jpg) }
 # lovely_kitchen =  {name: "Lovely kitchen", address: "Naunynstraße 33, 10999 Berlin", description: "The space was dark and, with a small window, everything changed. We decided to modernize it further and this was the final result. The green plant and the contrast of the chairs make the kitchen divine. You have a big bar to knead, season or prepare whatever you want. It is located in the middle of the center so in 10 minutes you will be preparing your best dishes. We are waiting for you with your reservation for the weekend!", capacity: 3, price: 95, file: (../images/KITCHEN 9 - SMALL AND COMFORTABLE KITCHEN) }
-
-first_kitchen = Kitchen.new(orange_kitchen)
-first_kitchen.photo.attach(io: File.open("app/assets/images/ORANGE_KITCHEN.jpg"), filename: first_kitchen.name, content_type: "image/jpg")
-first_kitchen.save!
 # [orange_kitchen, 2_ovens_kitchen, big_kitchen, medium_kitchen, colorful_kitchen, sunny_kitchen, small_kitchen, family_kitchen, lovely_kitchen].each do |attributes|
 #   kitchen = Kitchen.create!(attributes)
 #   puts "Created #{kitchen.name}"
