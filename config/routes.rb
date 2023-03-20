@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
   get '/dashboard', to: 'pages#dashboard'
   get 'booking/:id/accept', to: 'bookings#accept', as: :accept
-  get 'booking/:id/decline', to: 'bookings#accept', as: :decline
+  get 'booking/:id/decline', to: 'bookings#decline', as: :decline
   resources :bookings, only: :destroy
   resources :reviews, only: :destroy
 end
