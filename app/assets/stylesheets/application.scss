@@ -17,8 +17,8 @@
   min-height: calc(100vh - 150px - 120px);
 }
 
-// footer {
-//   position: absolute;
-//   bottom: 0;
-//   width: 100vw;
-// }
+.page-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
