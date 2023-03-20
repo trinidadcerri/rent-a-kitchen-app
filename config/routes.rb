@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'reviews/create'
   get 'reviews/destroy'
   # ! Check plural or singular for users
-  devise_for :users, controllers: {
+  devise_for :user, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     sessions: 'users/sessions',
     registrations: 'users/registrations'
