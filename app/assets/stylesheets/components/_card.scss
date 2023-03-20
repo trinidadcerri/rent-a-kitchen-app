@@ -27,6 +27,7 @@
   padding: 24px;
   background-color: #F8F9FA;
   text-align: left;
+  min-height: 150px;
 }
 
 .kitchen-card-actions {
@@ -117,4 +118,7 @@ ul {
   width: 800px;
   justify-content: space-around;
   font-size: 16px;
+}
+.dashboard {
+  margin-top: 150px;
 }
