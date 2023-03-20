@@ -20,7 +20,7 @@
   </div>
 </div>
 
-<!-- Logic to Accept / Decline a booking (I WANT TO TEST IT) / I CANNOT SEE NOTHING NOW -->
+<!-- Logic to Accept / Decline a booking -->
 <div class="booking-cofirmation">
 <h3>My kitchens</h3>
 <div class="row">
@@ -52,11 +52,14 @@
             <% kitchen.bookings.each do |booking| %>
               <li>
                 <p><%= booking.user.first_name %> wants to book on <%= booking.date %></p>
-                <% if booking.status == "Pending" %>
+                <% if booking.status == "pending" %>
                 <div class="kitchen-card-actions">
                   <%= link_to "Accept", accept_path(booking) %>
                   <%= link_to "Decline", decline_path(booking) %>
                 </div>
+                <% elsif booking.status == "accepted" %>
+                  <p>The booking was accepted</p>
+                  <%= link_to "Decline", decline_path(booking) %>
                 <% end %>
               </li>
             <% end %>
